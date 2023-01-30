@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Basic\ApiGenericController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,32 +14,5 @@ use App\Http\Controllers\Basic\ApiGenericController;
 */
 
 Route::get('/', function () {
-    $class = new ApiGenericController;
-    $flavours = $class->get_all_flavours();
-    return view('welcome',['flavours'=>$flavours->getData()->response]);
-    //$response = json_decode($flavours, true);
-    //print_r($response['response']);return;
-    //return view('welcome',['flavours'=>$response['response']]);
+    return view('welcome');
 });
-Route::get('/signup', function () {
-    return view('react');
-});
-Route::get('/signin', function () {
-    return view('react');
-});
-Route::get('/contact', function () {
-    return view('react');
-});
-Route::get('/adminlogin', function () {
-    return view('react_dashboard');
-});
-Route::get('/activate/{path?}', function () {
-    return view('react');
-})->where('path', '.*');
-
-Route::get('/dashboard/{path?}', function () {
-    return view('react_dashboard');
-})->where('path', '.*');
-Route::get('/admindashboard/{path?}', function () {
-    return view('react_dashboard');
-})->where('path', '.*');

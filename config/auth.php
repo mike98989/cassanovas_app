@@ -40,19 +40,7 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-        'api' => [
-            'driver' => 'passport',
-            'provider' => 'users',
-            'hash' => true,
-        ],
     ],
-
-    // 'guards' => [
-    //     'web' => [
-    //         'driver' => 'session',
-    //         'provider' => 'users',
-    //     ],
-    // ],
 
     /*
     |--------------------------------------------------------------------------
@@ -74,7 +62,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\Models\Distributor::class,
+            'model' => App\Models\User::class,
         ],
 
         // 'users' => [

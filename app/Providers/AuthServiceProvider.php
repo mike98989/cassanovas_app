@@ -1,20 +1,19 @@
 <?php
 
 namespace App\Providers;
-use Laravel\Passport\Passport;
+
+// use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
-use Illuminate\Support\Facades\Gate;
-use Carbon\Carbon;
 
 class AuthServiceProvider extends ServiceProvider
 {
     /**
-     * The policy mappings for the application.
+     * The model to policy mappings for the application.
      *
-     * @var array
+     * @var array<class-string, class-string>
      */
     protected $policies = [
-         'App\Model' => 'App\Policies\ModelPolicy',
+        // 'App\Models\Model' => 'App\Policies\ModelPolicy',
     ];
 
     /**
@@ -25,12 +24,7 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-        Passport::routes();
-        // Passport::tokensExpireIn(Carbon::now()->addDays(1));
-        Passport::tokensExpireIn(Carbon::now()->addHours(2));
-        //Passport:: refreshTokensExpireIn(Carbon::now()->addDays(10));
-        Passport:: refreshTokensExpireIn(Carbon::now()->addDays(3));
-        Passport::personalAccessTokensExpireIn(now()->addMonths(6));
+
         //
     }
 }
