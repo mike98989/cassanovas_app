@@ -24,7 +24,8 @@ Route::get('/v1/get_all_flavours', 'Basic\ApiGenericController@get_all_flavours'
 Route::get('/v1/verify_paystack_payment', 'Basic\ApiGenericController@verify_paystack_payment');
 //Route::post('/v1/save_order', 'Auth\OrdersAuthController@create');
 Route::post('/v1/refresh_token', 'Auth\UserAuthController@get_refresh_access_token');
-
+Route::post('/v1/contact_message', 'Basic\ApiGenericController@send_contact_message');
+Route::post('/v1/create_flavour', 'Auth\FlavoursAuthController@create');
 
 });
 
@@ -45,7 +46,7 @@ Route::prefix('v1')->middleware(['auth:api','json.response','cors','cassanovas_h
     Route::get('distributors', 'Auth\UserAuthController@get_all_distributors');
     Route::get('distributor', 'Auth\UserAuthController@get_distributor_details');
     Route::get('get_all_transactions', 'Auth\OrdersAuthController@get_all_transactions');
-
+    Route::delete('delete_flavour','Auth\FlavoursAuthController@destroy');
 //});
 });
 // Route::prefix('v1')->group(['middleware' => ['json.response','cors','cassanovas_header']],function () {

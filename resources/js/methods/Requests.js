@@ -11,13 +11,13 @@ export const fetchApi = async (url, method, body) => {
   try {
     if (method == "POST") {
       response = await axios.post(
-        constants.BASE_URL + "/api/v1/" + url,
+        constants.API_BASE_URL + "/api/v1/" + url,
         body,
         requestOptions
       );
     } else {
       response = await axios.get(
-        constants.BASE_URL + "/api/v1/" + url,
+        constants.API_BASE_URL + "/api/v1/" + url,
         requestOptions
       );
     }
@@ -88,7 +88,7 @@ let refreshToken = async (authTokens) => {
   };
 
   let result = await axios.post(
-    constants.BASE_URL + "/api/v1/refresh_token",
+    constants.API_BASE_URL + "/api/v1/refresh_token",
     formData,
     requestOptions
   );
@@ -102,7 +102,7 @@ let refreshToken = async (authTokens) => {
     return newToken;
   } else {
     localStorage.clear();
-    window.location.href = constants.BASE_URL + "/signin"
+    window.location.href = constants.API_BASE_URL + "/signin"
     return result.data;
   }
   //console.log("auth", newToken);
@@ -116,13 +116,20 @@ let originalRequest = async (url, method, body, requestOptions) => {
   try {
     if (method == "POST") {
       res = await axios.post(
-        constants.BASE_URL + "/api/v1/" + url,
+        constants.API_BASE_URL + "/api/v1/" + url,
         body,
         requestOptions
       );
-    } else {
+    }
+    else if (method == "DELETE") {
+      res = await axios.delete(
+        constants.API_BASE_URL + "/api/v1/" + url,
+        requestOptions
+      );
+    }
+    else {
       res = await axios.get(
-        constants.BASE_URL + "/api/v1/" + url,
+        constants.API_BASE_URL + "/api/v1/" + url,
         requestOptions
       );
     }

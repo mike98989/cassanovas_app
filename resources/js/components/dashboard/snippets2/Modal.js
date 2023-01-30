@@ -20,8 +20,8 @@ export default function Modal() {
                         <p>Are you sure you want to logout?</p>
                     </div>
                     <div className="modal-footer">
-                        <button type="button" className="btn btn-outline-primary" data-dismiss="modal">Cancel</button>
-                        <a href="#" onClick={signOut} className="btn btn-danger">Logout</a>
+                        <button type="button" className="btn btn-outline-info btn-sm" data-dismiss="modal">Cancel</button>
+                        <a href="#" onClick={signOut} className="btn btn-danger btn-sm">Logout</a>
                     </div>
                 </div>
             </div>

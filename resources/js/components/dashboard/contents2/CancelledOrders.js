@@ -2,14 +2,14 @@ import React, { useState, useEffect, useContext } from 'react';
 import AuthContext from "../../../context/AuthContext";
 import * as Requests from "../../../methods/Requests";
 
-export default function PendingOrders() {
+export default function CancelledOrders() {
     const [pending_orders, setPendingOrders] = useState();
     const { isAuthenticated, user } = useContext(AuthContext);
     // const [flavours, setFlavours] = useState([]);
 
     React.useEffect(() => {
         isAuthenticated &&
-            Requests.fetchAuthApi('orders?status=1', "GET", {}).then((data) => {
+            Requests.fetchAuthApi('orders?status=0', "GET", {}).then((data) => {
                 {
                     data && setPendingOrders(data.data);
                     console.log(data);

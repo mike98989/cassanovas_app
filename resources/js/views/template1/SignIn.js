@@ -50,7 +50,6 @@ export default function SignIn() {
                                     Sign up
                                 </a>
                             </li>
-
                         </ul>
                     </div>
                     <div className="col-lg-10 float_height" style={{ float: 'none', margin: '0 auto' }}>

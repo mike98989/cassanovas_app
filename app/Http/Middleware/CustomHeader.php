@@ -15,6 +15,7 @@ class CustomHeader
      */
     public function handle($request, Closure $next)
     {
+        
         if ($request->hasHeader('cassanovas-authorize')) {
             $header = $request->header('cassanovas-authorize');
             if ($header=='cassanovas.api') {

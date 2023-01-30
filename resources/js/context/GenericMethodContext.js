@@ -23,57 +23,57 @@ export const GenericMethodProvider = ({ children }) => {
     returnStatusFromContext: return_status_from_context,
     signOut: signout,
     payStackPayment: pay_stack_payment,
-    disableEnable: disable_enable
+    disableEnable: disable_enable,
+    deleteContent: delete_content
   };
 
-  function pay_stack_payment(amount, email_address, flavour_id, qty, order_id) {
-    let quantity = qty * 1;
+  function pay_stack_payment(amount, email_address, order_id) {
+    //let quantity = qty * 1;
     //alert(quantity); return;
-    if (quantity > 0) {
-      let handler = PaystackPop.setup({
 
-        key: constants.PAYSTACK_PK_KEY, // Replace with your public key
+    let handler = PaystackPop.setup({
 
-        email: email_address,
+      key: constants.ENV == 'public' ? constants.PAYSTACK_PK_KEY_LIVE : constants.PAYSTACK_PK_KEY, // Replace with your public key
 
-        amount: amount * 100,
-        metadata: { 'order_id': order_id, 'email': email_address, 'flavour_id': flavour_id },
-        ref: '' + Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+      email: email_address,
 
-        // label: "Optional string that replaces customer email"
+      amount: amount * 100,
+      metadata: { 'order_id': order_id, 'email': email_address },
+      ref: '' + Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
 
-        onClose: function () {
+      // label: "Optional string that replaces customer email"
 
-          alert('Window closed.');
+      onClose: function () {
 
-        },
+        alert('Window closed.');
 
-        callback: function (response) {
-          console.log(response);
-          response.status == "success" &&
-            window.location.replace(constants.BASE_URL + '/dashboard/order/confirm?reference=' + response.reference);
-          return;
+      },
 
-        }
+      callback: function (response) {
+        console.log(response);
+        response.status == "success" &&
+          window.location.replace(constants.BASE_URL + '/dashboard/order/confirm?reference=' + response.reference);
+        return;
 
-      });
+      }
+
+    });
 
 
-      handler.openIframe();
+    handler.openIframe();
 
-    } else {
-      alert("Invalid Input. Please input a quantity");
-    }
+
   }
 
   function new_form_submit(action_url) {
     //var event = Event;
     setLoading(true);
-    alert(loading + " loading state");
+
     event.preventDefault();
     const formData = new FormData(event.target);
     Requests.fetchApi(action_url, "POST", formData).then((data) => {
       {
+
         if (action_url == "login" && data.status == 200) {
           //console.log("dataValue", data.data.data);
           ///return;
@@ -158,6 +158,21 @@ export const GenericMethodProvider = ({ children }) => {
       window.location.reload(false);
     })
   }
+
+
+  function delete_content(action_url) {
+    setLoading(true);
+    //alert(action_url); return;
+    Requests.fetchAuthApi(action_url, 'DELETE', {}).then(data => {
+      console.log(data);
+      //notify(data.data.message);
+    })
+    setLoading(false);
+    setTimeout(function () {
+      window.location.reload();
+    }, 2000);
+  }
+
 
   return (
     <GenericMethodContext.Provider value={contextData}>

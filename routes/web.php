@@ -18,11 +18,17 @@ Route::get('/', function () {
     $class = new ApiGenericController;
     $flavours = $class->get_all_flavours();
     return view('welcome',['flavours'=>$flavours->getData()->response]);
+    //$response = json_decode($flavours, true);
+    //print_r($response['response']);return;
+    //return view('welcome',['flavours'=>$response['response']]);
 });
 Route::get('/signup', function () {
     return view('react');
 });
 Route::get('/signin', function () {
+    return view('react');
+});
+Route::get('/contact', function () {
     return view('react');
 });
 Route::get('/adminlogin', function () {

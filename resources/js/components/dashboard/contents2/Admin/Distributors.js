@@ -38,7 +38,7 @@ export default function Distributors() {
                         <a href={Constants.BASE_URL + '/admindashboard/administrators/new'} className='btn btn-sm btn-info'>Create New +</a>
                     </div>
                     <div className="table-responsive">
-                        <table className="table align-items-center table-flush">
+                        <table className="table align-items-center table-flush" style={{ fontSize: '12px' }}>
                             <thead className="thead-light">
                                 <tr>
                                     <th>#</th>

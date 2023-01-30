@@ -249,7 +249,7 @@ export default function Activate() {
                                             </div>
 
                                             {returnStatusFromContext == '1' && (
-                                                <a href="singin" className="btn btn-sm btn-success">Siginin</a>
+                                                <a href={constants.BASE_URL + "/signin"} className="btn btn-sm btn-success">Signin Now</a>
                                             )}
                                         </>
                                     )}

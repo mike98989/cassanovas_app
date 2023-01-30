@@ -1,12 +1,11 @@
 import React from 'react';
 import * as constants from '../../../../utils/Constants'
-
 export default function SideNav() {
     return (
         <ul className="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
-            <a className="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a className="sidebar-brand d-flex align-items-center justify-content-center" href="#" style={{ backgroundColor: '#fff' }}>
                 <div className="sidebar-brand-icon">
-                    <img src="img/logo/logo2.png" />
+                    <img src="/images/logo_black.png" />
                 </div>
                 <div className="sidebar-brand-text mx-3">Cassanovas</div>
             </a>
@@ -16,6 +15,7 @@ export default function SideNav() {
                     <i className="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
+
             <hr className="sidebar-divider" />
             <div className="sidebar-heading">
                 Features
@@ -38,8 +38,8 @@ export default function SideNav() {
 
             <li className="nav-item">
                 <a className="nav-link" href={constants.BASE_URL + '/admindashboard/flavours'}>
-                    <i className="fa fa-ticket"></i>
-                    <span>Flavours </span>
+                    <i className="fa fa-th"></i>
+                    <span> Flavours </span>
                 </a>
             </li>
 
@@ -52,8 +52,8 @@ export default function SideNav() {
                 <div id="collapseBootstrap" className="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
                     <div className="bg-white py-2 collapse-inner rounded">
                         <h6 className="collapse-header">Orders</h6>
-                        <a className="collapse-item" href={constants.BASE_URL + '/dashboard/order/completed'}>Completed</a>
-                        <a className="collapse-item" href={constants.BASE_URL + '/dashboard/order/pending'}>In Process</a>
+                        <a className="collapse-item" href={constants.BASE_URL + '/admindashboard/order/completed'}>Completed</a>
+                        {/* <a className="collapse-item" href={constants.BASE_URL + '/dashboard/order/pending'}>In Process</a> */}
 
 
                     </div>

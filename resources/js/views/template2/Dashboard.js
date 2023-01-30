@@ -11,8 +11,10 @@ import NewOrder from '../../components/dashboard/contents2/NewOrder';
 import NewTicket from '../../components/dashboard/contents2/NewTicket';
 import Tickets from '../../components/dashboard/contents2/Tickets';
 import ConfirmOrder from '../../components/dashboard/contents2/ConfirmOrder';
-// import CompletedOrder from '../components/dashboard/contents2/CompletedOrder';
-import PendingOrder from '../../components/dashboard/contents2/PendingOrders';
+import CompletedOrders from '../../components/dashboard/contents2/CompletedOrders';
+import MyProfile from '../../components/dashboard/contents2/MyProfile';
+
+// import CancelledOrder from '../../components/dashboard/contents2/CancelledOrders';
 
 import { json } from "react-router-dom";
 
@@ -53,12 +55,12 @@ export default function Dashboard() {
                                     }
                                     {(complete_url[2] == 'order') &&
                                         (complete_url[3] == 'new') ?
-                                        <NewOrder payWithPaystack={(amount, email, flavour_id, qty, order_id) => { payStackPayment(amount, email, flavour_id, qty, order_id) }} />
+                                        <NewOrder payWithPaystack={(amount, email, order_id) => { payStackPayment(amount, email, order_id) }} />
                                         :
                                         (complete_url[3] == 'confirm') ? <ConfirmOrder />
                                             :
-                                            (complete_url[3] == 'completed') ? <CompletedOrder />
-                                                : (complete_url[3] == 'pending') ? <PendingOrder />
+                                            (complete_url[3] == 'completed') ? <CompletedOrders />
+                                                : (complete_url[3] == 'cancelled') ? <CancelledOrders />
                                                     : null
 
                                     }
@@ -68,11 +70,19 @@ export default function Dashboard() {
                                         <NewTicket />
                                         : (complete_url[3] == 'all') ? <Tickets />
                                             : null}
+
+                                    {(complete_url[2] == 'profile') &&
+                                        (complete_url[3] == 'me') ?
+                                        <MyProfile />
+                                        : (complete_url[3] == 'edit') ? <EditProfile />
+                                            : null}
                                 </div>
                                 <ModalWindow />
                             </div>
                         </div>
                     </div>
+
+
                 </>
 
             }

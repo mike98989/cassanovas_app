@@ -1248,7 +1248,7 @@ svg.logo text {
 #top-content .domain-search-holder input[type="text"] {
     padding: 20px 35px;
     border-radius: 10px;
-    background-color: #f1f4f5;
+    background-color: #fff;
     font-size: 18px;
     color: #87838e;
     border: 0;
@@ -2022,7 +2022,7 @@ svg.logo text {
 
 #h-info {
     background-color: #ffffff;
-    padding-top: 60px;
+    padding-top: 10px;
     text-align: center;
 }
 
@@ -8074,4 +8074,8 @@ svg.logo text {
     border-right: 2px solid #cfced6;
     padding: 0 40px;
     margin-right: 4px;
+}
+.signin-signup-form label {
+    text-align: left;
+    font-weight: normal !important;
 }

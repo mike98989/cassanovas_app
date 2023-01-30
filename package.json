@@ -27,6 +27,7 @@
         "froala-editor": "^4.0.15",
         "query-string": "^7.1.1",
         "react-froala-wysiwyg": "^4.0.15",
+        "react-helmet": "^6.1.0",
         "react-router-dom": "^6.4.3"
     }
 }

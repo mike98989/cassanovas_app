@@ -1,5 +1,5 @@
 @font-face {
-    font-family: Nunito;
+    font-family: sans-serif;
     src: url(../font/Nunito-Regular.ttf);
     src: url(../font/Nunito-Regular.ttf) format("ttf"),
         url(../font/Nunito-Regular.ttf) format("truetype");
@@ -7,7 +7,7 @@
 html {
     position: relative;
     min-height: 100%;
-    font-family: Nunito;
+    font-family: sans-serif;
 }
 body {
     height: 100%;
@@ -527,7 +527,7 @@ a:focus {
     }
 }
 .topbar.navbar-light .navbar-nav .nav-item .nav-link {
-    color: #fafafa;
+    color: #3c3c3c;
     transition: all 0.3s ease-in-out;
     -webkit-transition: all 0.3s ease-in-out;
 }
@@ -705,6 +705,7 @@ a:focus {
 }
 .sidebar .sidebar-brand .sidebar-brand-text {
     display: inline;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .sidebar.toggled {
     overflow: visible;
@@ -972,8 +973,8 @@ a:focus {
     font-weight: 700;
 }
 .sidebar-light .sidebar-brand {
-    color: #fafafa;
-    background-color: #4c60da;
+    color: rgb(81, 77, 77);
+    background-color: #a1a2a5;
 }
 .sidebar-light hr.sidebar-divider {
     border-top: 1px solid #eaecf4;
@@ -1575,8 +1576,8 @@ body.sidebar-toggled footer.sticky-footer {
 }
 .card .table td,
 .card .table th {
-    padding-right: 1.5rem;
-    padding-left: 1.5rem;
+    padding-right: 0.8rem;
+    padding-left: 0.8rem;
 }
 .customer-message {
     border-bottom: 1px solid #e3e6f0;
@@ -3208,4 +3209,95 @@ body.sidebar-toggled footer.sticky-footer {
 
 #page-icon:hover .pricing-icon .special-gradiant {
     animation-name: little-move;
+}
+
+/*////////// ADDED CSS */
+.container_cart_summary {
+    justify-content: space-between;
+    flex-direction: column;
+    display: flex;
+}
+.container_cart_summary .btn-checkout {
+    justify-content: center;
+    display: flex;
+}
+
+.image img {
+    transition: all 0.5s;
+}
+
+.card:hover .image img {
+    transform: scale(1.5);
+}
+
+.btn_circle {
+    height: 140px;
+    width: 140px;
+    border-radius: 50%;
+}
+
+.name {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.idd {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.idd1 {
+    font-size: 12px;
+}
+
+.number {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.follow {
+    font-size: 12px;
+    font-weight: 500;
+    color: #444444;
+}
+
+.btn1 {
+    height: 40px;
+    width: 150px;
+    border: none;
+    background-color: #000;
+    color: #aeaeae;
+    font-size: 15px;
+}
+
+.btn2 {
+    height: 40px;
+    width: 150px;
+    border: none;
+    background-color: rgb(108, 106, 106);
+    color: #3a3838;
+    font-size: 15px;
+}
+
+.text span {
+    font-size: 13px;
+    color: #545454;
+    font-weight: 500;
+}
+
+.icons i {
+    font-size: 19px;
+}
+
+hr .new1 {
+    border: 1px solid;
+}
+
+.join {
+    font-size: 11px;
+    color: #a0a0a0;
+}
+
+.date {
+    background-color: #ccc;
 }

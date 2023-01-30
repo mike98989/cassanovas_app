@@ -3,7 +3,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
-    <title>Laravel</title>
+    <link rel="shortcut icon" href="{{ asset('images/logo_white.png')}}">
+    <!-- <link href="{{ asset('images/logo/logo.png')}}" rel="icon"> -->
+    
+    <title>{{env('APP_NAME')}}</title>
     <!-- Styles -->
 <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap-slider.min.css') }}">
@@ -41,16 +44,14 @@
                         </div>
                         <div style="height: 1px;" role="main" aria-expanded="false" class="navbar-collapse collapse" id="bs">
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="http://brandio.io/envato/hostify/html/contact.html">Contact us</a></li>
+                                <li><a href="./index">Home</a></li>
+                                <li><a href="./contact">Contact us</a></li>
                                 <li><a class="login-button" href="./signin">Login</a></li>
                                 <li class="support-button-holder support-dropdown">
                                     <a class="support-button" href="#">Support</a>
                                     <ul class="dropdown-menu">
-                                      <li><a href="#"><i class="fas fa-phone"></i>Toll-Free  08-197-435-01</a></li>
-                                      <li><a href="#"><i class="fas fa-comments"></i>Start a Live Chat</a></li>
-                                      <li><a href="#"><i class="fas fa-ticket-alt"></i>Open a ticket</a></li>
-                                      <li><a href="#"><i class="fas fa-book"></i>Knowledge base</a></li>
+                                      <li><a target="_blank" href="https://wa.me/08138004276"><i class="fas fa-comments"></i>Whatsapp - 08138004276</a></li>
+                                      <li><a href="#"><i class="fas fa-envelope"></i>Email support@cassanovas.ng</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -71,7 +72,7 @@
                             <div class="big-title">Ordering for your <span>Chips,</span><br><span>Just Got Better.</span></div>
                             <p>Cassanovas are Nigeria’s frst cassava snack food brand and producers of the best, most consistent and tastiest quality branded snacks in West Africa. We provide an end-to-end sales and ordering service with no middle-man to keep our prices competitive. We also support sales through an active marketing scheme that will boost sales across the country.</p>
                             <div class="btn-holder">
-                                <a href="./signup" class="ybtn ybtn-header-color">Register</a><a href="./contacts" class="ybtn ybtn-white ybtn-shadow">Contact Us</a>
+                                <a href="./signup" class="ybtn ybtn-header-color">Register</a><a href="./contact" class="ybtn ybtn-white ybtn-shadow">Contact Us</a>
                             </div>
                         </div>
                     </div>
@@ -99,7 +100,7 @@
             <div class="col-sm-6 col-md-3">
                 <div class="pricing-box pricing-unity pricing-color1">
                     <div class="pricing-content">
-                    <img style="width:100%" src="{{URL::to('/').$flavour->image}}" alt="{{$flavour->flavour}}"/>
+                    <img style="width:100%" src="{{URL::to('storage/flavour').'/'.$flavour->image}}" alt="{{$flavour->flavour}}"/>
                         <div class="pricing-title">{{$flavour->flavour}}</div>
                         <div class="pricing-price">N{{$flavour-> carton_price }}</div>
                         <div class="price-title">Per Pack</div>
@@ -107,7 +108,7 @@
                             <p>{{$flavour->  description  }}</p>
                         </div>
                         <div class="pricing-link">
-                            <a class="ybtn" href="http://brandio.io/envato/hostify/html/webhosting.html">Order Now</a>
+                            <a class="ybtn" href="{{ asset('/dashboard/order/new')}}">Order Now</a>
                         </div>
                     </div>
                 </div>
@@ -238,58 +239,18 @@
         <div class="row">
             <div class="col-xs-6 col-sm-4 col-md-3">
                 <div class="address-holder">
-                    <div class="phone"><i class="fas fa-phone"></i> 00 285 900 38502</div>
-                    <div class="email"><i class="fas fa-envelope"></i> <a href="http://brandio.io/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ed8588818182ad85829e99848b94c38e8280">[email&#160;protected]</a></div>
+                    <div class="phone"><i class="fas fa-phone"></i> 0813 800 4276</div>
+                    <div class="email"><i class="fas fa-envelope"></i> <a href="mailto:support@cassanovas.ng">support@cassanovas.ng</a></div>
                     <div class="address">
                         <i class="fas fa-map-marker"></i> 
-                        <div>City Avenue, Office 64,<br>
-                            Floor 6,  Milbourne,<br>
-                            Australia.</div>
+                        <div>Block B3 Ivy Apartments,<br>
+                                    Wuye,<br />
+                                    Abuja, Federal Capital Territory,
+                                    Nigeria.</div>
                     </div>
                 </div>
             </div>
-            <div class="col-xs-6 col-sm-2 col-md-2">
-                <div class="footer-menu-holder">
-                    <h4>Company</h4>
-                    <ul class="footer-menu">
-                        <li><a href="http://brandio.io/envato/hostify/html/about.html">About us</a></li>
-                        <li><a href="http://brandio.io/envato/hostify/html/blog.html">News</a></li>
-                        <li><a href="http://brandio.io/envato/hostify/html/faq.html">FAQ</a></li>
-                        <li><a href="http://brandio.io/envato/hostify/html/contact.html">Contact us</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-xs-6 col-sm-2 col-md-3">
-                <div class="footer-menu-holder">
-                    <h4>Services</h4>
-                    <ul class="footer-menu">
-                        <li><a href="http://brandio.io/envato/hostify/html/webhosting.html">Web Hosting</a></li>
-                        <li><a href="http://brandio.io/envato/hostify/html/cloudhosting.html">Cloud Hosting</a></li>
-                        <li><a href="http://brandio.io/envato/hostify/html/vpshosting.html">VPS Servers</a></li>
-                        <li><a href="http://brandio.io/envato/hostify/html/domains.html">Domain Names</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-xs-6 col-sm-3 col-md-3">
-                <div class="footer-menu-holder">
-                    <h4>Others</h4>
-                    <ul class="footer-menu">
-                        <li><a href="#">Transfer domains</a></li>
-                        <li><a href="http://brandio.io/envato/hostify/html/portal.html">Customer Portal</a></li>
-                        <li><a href="#">Support Portal</a></li>
-                        <li><a href="#">Video Tutorials</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-1 col-md-1">
-                <div class="social-menu-holder">
-                    <ul class="social-menu">
-                        <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fab fa-youtube"></i></a></li>
-                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                    </ul>
-                </div>
-            </div>
+            
         </div>
     </div>
 </div>

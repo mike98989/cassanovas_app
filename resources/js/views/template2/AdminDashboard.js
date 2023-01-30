@@ -13,9 +13,9 @@ import Distributors from '../../components/dashboard/contents2/Admin/Distributor
 import DistributorDetails from '../../components/dashboard/contents2/Admin/DistributorDetails';
 import Transactions from '../../components/dashboard/contents2/Admin/Transactions';
 import Flavours from '../../components/dashboard/contents2/Admin/Flavours';
-
+import NewFlavour from '../../components/dashboard/contents2/Admin/NewFlavour';
 // import CompletedOrder from '../components/dashboard/contents2/CompletedOrder';
-import PendingOrder from '../../components/dashboard/contents2/PendingOrders';
+//import CompletedOrders from '../../components/dashboard/contents2/Admin/CompletedOrders';
 
 import { json } from "react-router-dom";
 
@@ -54,43 +54,48 @@ export default function Dashboard() {
                                     {complete_url[2] == 'home' &&
                                         < Landing />
                                     }
-                                    {complete_url[2] == 'distributors' &&
-                                        (!complete_url[3]) ?
-                                        < Distributors />
-                                        :
-                                        <DistributorDetails distributor_id={complete_url[3]} />
+
+                                    {complete_url[2] === 'distributors' &&
+                                        (
+                                            (!complete_url[3]) ? < Distributors /> :
+                                                <DistributorDetails distributor_id={complete_url[3]} />
+                                        )
                                     }
 
                                     {complete_url[2] == 'transactions' &&
-                                        (!complete_url[3]) ?
-                                        < Transactions />
-                                        :
-                                        null
+                                        (
+                                            (!complete_url[3]) ?
+                                                < Transactions />
+                                                :
+                                                null
+                                        )
                                     }
 
                                     {complete_url[2] == 'administrators' &&
-                                        (!complete_url[3]) ?
-                                        <Administrators />
-                                        :
-                                        (complete_url[3] == 'new') ?
-                                            <NewAdmin />
-                                            :
-                                            null
-
+                                        (
+                                            (!complete_url[3]) ?
+                                                <Administrators />
+                                                :
+                                                (complete_url[3] == 'new') ?
+                                                    <NewAdmin />
+                                                    :
+                                                    null
+                                        )
                                     }
 
                                     {complete_url[2] == 'flavours' &&
-                                        (!complete_url[3]) ?
-                                        <Flavours />
-                                        :
-                                        (complete_url[3] == 'new') ?
-                                            <NewFlavour />
-                                            :
-                                            null
-
+                                        (
+                                            (!complete_url[3]) ?
+                                                <Flavours />
+                                                :
+                                                (complete_url[3] == 'new') ?
+                                                    <NewFlavour />
+                                                    :
+                                                    null
+                                        )
                                     }
                                 </div>
-                                <ModalWindow />
+                                {/* <ModalWindow /> */}
                             </div>
                         </div>
                     </div>

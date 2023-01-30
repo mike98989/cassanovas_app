@@ -8,7 +8,7 @@ export default function HeaderNav() {
     const { isAuthenticated, user } = useContext(AuthContext);
 
     return (
-        <nav className="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top">
+        <nav className="navbar navbar-expand navbar-light  topbar mb-4 static-top">
             <button id="sidebarToggleTop" className="btn btn-link rounded-circle mr-3">
                 <i className="fa fa-bars"></i>
             </button>
@@ -21,7 +21,7 @@ export default function HeaderNav() {
                 </li>
 
                 <li className="nav-item no-arrow mx-1">
-                    <a className="nav-link" href="#" role="button" data-toggle="dropdown">
+                    <a className="nav-link" href="#" role="button" data-toggle="dropdown" style={{ color: '#000' }}>
                         <i className="fa fa-phone"></i>
                     </a>
                 </li>
@@ -31,7 +31,7 @@ export default function HeaderNav() {
                     <a className="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
                         <img className="img-profile rounded-circle" src="/images/boy.png" style={{ maxWidth: '60px' }} />
-                        <span className="ml-2 d-none d-lg-inline text-white small">{user.company_name}</span>
+                        <span className="ml-2 d-none d-lg-inline small" style={{ color: '#000' }}>{user.company_name}</span>
                     </a>
                     <div className="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                         <a className="dropdown-item" href={constants.BASE_URL + '/dashboard/profile'}>

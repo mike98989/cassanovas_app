@@ -12,6 +12,8 @@ use Mailgun\Mailgun;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+//use SendGrid\Mail\Mail;
+
 class UserAuthController extends Controller
 {
     
@@ -37,10 +39,22 @@ class UserAuthController extends Controller
         $request['rand'] = rand(100000,1000000);
         $distributor = Distributor::create($request->toArray());
         $token = $distributor->createToken('Cassanovas_Sales_App')->accessToken;
-        $emailHtmlMessage = 'It is so simple to send a message.';
-        $send_mail = $this->send_mail($request->company_email,$request->company_name,"Welcome On Board",$emailHtmlMessage);
-        //$response = ['message' => $send_mail,'status'=>'1'];
+        $emailHtmlMessage = "<div style='font-size:15px'><h4>Hi ".$request->company_name.",</h4>
+        <p style='line-height:25px'>Thanks for getting started with us at Cassanovas!<br/>We need a little more information to complete your registration, including a confirmation of your email address.<br>Please click below to confirm your email address:<br><a href=".env('REMOTE_URL')."/activate/".$request['activation_url'].">".env('REMOTE_URL')."/activate/".$request['activation_url']."</a> 
+        <br><em>If you have problems, please paste the above URL into your web browser</em></p></div>";
+        $toEmailArray=array(['name' => $request->company_name, 'email' => $request->company_email]);
+        $send_mail = $this->send_mail($toEmailArray,"Welcome On Board",$emailHtmlMessage);
+
+        // $details = [
+        //     'title' => 'Mail from ItSolutionStuff.com',
+        //     'body' => 'This is for testing email using smtp'
+        // ];
+
+        // \Mail::to($request->company_email)->send(new \App\Mail\CassanovasMail($details));
+        // dd("Email is Sent.");
+
         $response = ['message' => "New User Created",'status'=>'1'];
+        //$response = ['message' => "New User Created",'status'=>'1'];
         return response($response, 200);
     }
 
@@ -55,7 +69,7 @@ class UserAuthController extends Controller
             return response(['errors'=>$validator->errors()->all()], 422);
         }
         $matchThese = ['distributors.company_email' => $request->company_email];
-        $user = Distributor::where($matchThese)->first();
+        $user = Distributor::where($matchThese)->join('states','distributors.state','=','states.state_id')->first();
         if ($user) {
             if (Hash::check($request->password, $user->password)) {
                 //$token = $user->createToken('Laravel Password Grant Client')->accessToken;
@@ -87,6 +101,7 @@ class UserAuthController extends Controller
 
     public function get_refresh_access_token(Request $request){
         $base_url=env('APP_URL').":8000";
+        
         $client_secrete2=env('PASSPORT_CLIENT_SECRET2');
         $client_id2=env('PASSPORT_CLIENT_ID2');
         //return getAuthIdentifierName();
@@ -122,22 +137,70 @@ class UserAuthController extends Controller
         
     }
 
-    public function send_mail($toEmail,$name,$subject,$message){
-        require '../vendor/autoload.php';
-        # Instantiate the client.
-        // First, instantiate the SDK with your API credentials
-        $mg = Mailgun::create('7f24132da502722cc0d555f63cb75a87-8845d1b1-5933962f'); // For US servers
-        
-        //$mg = Mailgun::create('7f24132da502722cc0d555f63cb75a87-8845d1b1-5933962f', 'https://api.eu.mailgun.net'); // For EU servers
 
-        // Now, compose and send your message.
-        // $mg->messages()->send($domain, $params);
-        $result = $mg->messages()->send('sandbox24401b5b86244884a97e168bc46e08b1.mailgun.org', [
-        'from'    => 'noreply@hayesconsultsltd.com',
-        'to'      => $toEmail,
-        'subject' => $subject,
-        'text'    => $message
-        ]);
+    public function send_mail($toEmailArray,$subject,$message){
+    //require_once(__DIR__ . '/../vendor/autoload.php');
+    ///require __DIR__.'/../vendor/autoload.php';
+    //return $toEmailArray;
+    $credentials = \SendinBlue\Client\Configuration::getDefaultConfiguration()->setApiKey('api-key', env('SENDINBLUE_API_KEY'));
+    $apiInstance = new \SendinBlue\Client\Api\TransactionalEmailsApi(new \GuzzleHttp\Client(),$credentials);
+
+$sendSmtpEmail = new \SendinBlue\Client\Model\SendSmtpEmail([
+     'subject' => $subject,
+     'sender' => ['name' => 'Cassanovas', 'email' => 'support@cassanovas.ng'],
+     'replyTo' => ['name' => 'Cassanovas', 'email' => 'support@cassanovas.ng'],
+     'to' => $toEmailArray,
+     'htmlContent' => $message,
+]);
+
+try {
+    $result = $apiInstance->sendTransacEmail($sendSmtpEmail);
+    return $result;
+} catch (Exception $e) {
+    echo $e->getMessage(),PHP_EOL;
+}
+
+    }
+    public function send_mail2($toEmail,$name,$subject,$message){
+
+        //////////// SEND GRID
+        $email = new Mail();
+        $email->setFrom("support@cassanovas.ng", "Admin");
+        $email->setSubject($subject);
+        $email->addTo($toEmail, $name);
+        //$email->addContent("text/plain", "and easy to do anywhere, even with PHP");
+        $email->addContent(
+            "text/html", $message
+        );
+        $sendgrid = new \SendGrid(env('SENDGRID_API_KEY'));
+        try {
+            $response = $sendgrid->send($email);
+            //print $response->statusCode() . "\n";
+            // print_r($response->headers());
+            // print $response->body() . "\n";
+            return $response->body();
+        } catch (Exception $e) {
+            echo 'Caught exception: '.  $e->getMessage(). "\n";
+        }
+
+        /////// SENDINBLUE
+        // require '../vendor/autoload.php';
+        // # Instantiate the client.
+        // // First, instantiate the SDK with your API credentials
+        // $mg = Mailgun::create('7f24132da502722cc0d555f63cb75a87-8845d1b1-5933962f'); // For US servers
+        
+        // //$mg = Mailgun::create('7f24132da502722cc0d555f63cb75a87-8845d1b1-5933962f', 'https://api.eu.mailgun.net'); // For EU servers
+
+        // // Now, compose and send your message.
+        // // $mg->messages()->send($domain, $params);
+        // $result = $mg->messages()->send('sandbox24401b5b86244884a97e168bc46e08b1.mailgun.org', [
+        // 'from'    => 'noreply@hayesconsultsltd.com',
+        // 'to'      => $toEmail,
+        // 'subject' => $subject,
+        // 'text'    => $message
+        // ]);
+
+        //// MAIL GUN
 
 //         require '../vendor/autoload.php';
         
@@ -205,7 +268,8 @@ class UserAuthController extends Controller
 
 ////////GET ALL DISTRIBUTORS
 public function get_all_distributors(){
-    return Distributor::all();
+    //return Distributor::all();
+    return Distributor::join('states','distributors.state','=','states.state_id')->get();
 }
 
 

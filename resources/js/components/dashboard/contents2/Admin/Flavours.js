@@ -14,6 +14,7 @@ export default function Flavours() {
         returnStatusFromContext,
         isLoading,
         disableEnable,
+        deleteContent
     } = useContext(GenericMethodContext);
 
 
@@ -46,32 +47,39 @@ export default function Flavours() {
                 </div>
 
             }
-            {(flavours && flavours.length != 0) &&
-                flavours.map((flavour, i) => {
-                    return (
-                        < div key={i} className="col-xl-3 col-lg-12 mb-4" >
-                            <div className="pricing-box">
-                                <div className="pricing-content">
-                                    <div className="pricing-head">
-                                        <div className="pricing-title">{flavour.flavour.toUpperCase()}</div>
-                                        <img src={flavour.image} style={{ width: '100%' }} alt="" />
-                                        <div className="pricing-features">
-                                            {flavour.description}
+            <div className='container' style={{ marginBottom: '10px' }}>
+                <a href={Constants.BASE_URL + '/admindashboard/flavours/new'} className='btn btn-success btn-sm'>Add Flavour +</a>
+            </div>
+            <div className='row'>
+                {(flavours && flavours.length != 0) &&
+                    flavours.map((flavour, i) => {
+                        return (
+                            < div key={i} className="col-xl-3 col-lg-12 mb-4" >
+                                <div className="pricing-box">
+                                    <div className="pricing-content" style={{ padding: '20px 10px' }}>
+                                        <div className="pricing-head">
+                                            <div className="pricing-title">{flavour.flavour.toUpperCase()}</div>
+                                            <img src={Constants.BASE_URL + '/storage/flavour/' + flavour.image} style={{ width: '100%' }} alt="" />
+                                            <div className="pricing-features">
+                                                {flavour.description}
+                                            </div>
+
+                                        </div>
+
+                                        <b>N{flavour.carton_price}</b>
+
+                                        <div className="pricing-link" style={{ marginTop: '20px' }}>
+                                            <button className="btn btn-info btn-sm" style={{ marginRight: '7px' }}>Edit</button>
+                                            <button className="btn btn-danger btn-sm" onClick={() => { deleteContent('delete_flavour?id=' + flavour.id) }}>Delete</button>
                                         </div>
                                     </div>
-
-                                    <b>N{flavour.carton_price}</b>
-
-                                    <div className="pricing-link">
-                                        <a className="btn btn-info btn-sm" href="#">Edit</a>
-                                    </div>
                                 </div>
-                            </div>
-                        </div >
-                    )
-                })
+                            </div >
+                        )
+                    })
 
-            }
+                }
+            </div>
 
 
         </div>
