@@ -14,11 +14,13 @@ export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const [authTokens, setAuthTokens] = useState(null)
     const [isLoading, setLoading] = useState(true);
+    const [sessionType, setSessionType] = useState(null);
 
     useEffect(() => {
         async function loadAuthFromLocalStorage() {
             localStorage.getItem('authTokens') ? setAuthTokens(JSON.parse(localStorage.getItem('authTokens'))) : setAuthTokens(null);
             localStorage.getItem('user_data') ? setUser(JSON.parse(localStorage.getItem('user_data'))) : setUser(null);
+            localStorage.getItem('session_type') ? setSessionType(JSON.parse(localStorage.getItem('session_type'))) : setSessionType(null);
             setLoading(false);
         }
         loadAuthFromLocalStorage();
@@ -32,6 +34,7 @@ export const AuthProvider = ({ children }) => {
     let contextData = {
         user: user,
         authTokens: authTokens,
+        sessionType: sessionType,
         setAuthTokens: setAuthTokens,
         setUser: setUser,
         logoutUser: logout,

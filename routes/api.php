@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::group(['middleware' => ['json.response','cors','cassanovas_header']], function () {
+Route::group(['middleware' => ['json.response']], function () {
 Route::post('/v1/register', 'Auth\UserAuthController@register');
 Route::post('/v1/login', 'Auth\UserAuthController@login');
 Route::post('/v1/adminlogin', 'Auth\AdminAuthController@login');
@@ -30,14 +30,14 @@ Route::post('/v1/create_flavour', 'Auth\FlavoursAuthController@create');
 });
 
 
-Route::prefix('v1')->middleware(['auth:api','json.response','cors','cassanovas_header'])->group(function () {
+Route::prefix('v1')->middleware(['auth:api','json.response'])->group(function () {
 //Route::middleware('auth:api')->group(function () {
     // our routes to be protected will go in here
     Route::get('logout', 'Auth\UserAuthController@logout')->name('logout.api');
     Route::get('user', 'Auth\UserAuthController@user');
     Route::get('orders', 'Auth\OrdersAuthController@get_pending_or_completed_orders');
     Route::post('save_order', 'Auth\OrdersAuthController@create');
-    Route::get('get_user_orders','Auth\OrdersAuthController@get_user_orders');
+    
     Route::post('create_support_ticket', 'Auth\TicketAuthController@create');
     Route::get('tickets', 'Auth\TicketAuthController@get_user_tickets');
     Route::get('admins', 'Auth\AdminAuthController@get_all_admins');
@@ -48,6 +48,14 @@ Route::prefix('v1')->middleware(['auth:api','json.response','cors','cassanovas_h
     Route::get('get_all_transactions', 'Auth\OrdersAuthController@get_all_transactions');
     Route::delete('delete_flavour','Auth\FlavoursAuthController@destroy');
 //});
+});
+
+Route::prefix('v1')->middleware(['auth:admin','json.response'])->group(function () {
+    Route::get('/admin', function (Request $request) {
+        return response($request->user(), 200);
+    //return response()->json([ 'valid' => auth()->check()]);
+    });
+    Route::get('get_user_orders','Auth\OrdersAuthController@get_user_orders');
 });
 // Route::prefix('v1')->group(['middleware' => ['json.response','cors','cassanovas_header']],function () {
 // Route::get('/logout', function () {

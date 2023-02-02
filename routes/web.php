@@ -41,6 +41,6 @@ Route::get('/activate/{path?}', function () {
 Route::get('/dashboard/{path?}', function () {
     return view('react_dashboard');
 })->where('path', '.*');
-Route::get('/admindashboard/{path?}', function () {
+Route::get('/admin/{path?}', function () {
     return view('react_dashboard');
 })->where('path', '.*');

@@ -36,7 +36,11 @@ export const fetchApi = async (url, method, body) => {
 
 export const fetchAuthApi = async (url, method, body) => {
   let result = {}
+  let session_type = localStorage.getItem('session_type') ? JSON.parse(localStorage.getItem('session_type')) : null
+
   let authTokens = localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null
+
+  //alert(JSON.stringify(authTokens.accessToken));
   // const user_data = localStorage.getItem("user_data")
   //   ? JSON.parse(localStorage.getItem("user_data"))
   //   : null;
@@ -47,24 +51,28 @@ export const fetchAuthApi = async (url, method, body) => {
     headers: {
       "cassanovas_authorize": "cassanovas.api",
       "Content-Type": "multipart/form-data",
-      Authorization: "Bearer " + authTokens?.access_token,
+      Authorization: authTokens ? session_type == 'user' ? "Bearer " + authTokens.access_token : "Bearer " + authTokens.accessToken : null,
     },
   };
 
-
+  console.log(requestOptions);
   let ret_response = await originalRequest(url, method, body, requestOptions);
   if (ret_response) {
     if (ret_response.statusText == 'Unauthorized') {
-      console.log("Get Refresh token");
-      let refreshTokens = await refreshToken(authTokens);
+      if (session_type == 'user') {
+        console.log("Get Refresh token");
+        let refreshTokens = await refreshToken(authTokens);
 
-      requestOptions["headers"] = {
-        Authorization: `Bearer ${refreshTokens.access_token}`,
-        "cassanovas_authorize": "cassanovas.api",
-      };
-      let newResponse = await originalRequest(url, method, body, requestOptions);
-      result = newResponse.response;
-      //let data = newResponse.data;
+        requestOptions["headers"] = {
+          Authorization: `Bearer ${refreshTokens.access_token}`,
+          "cassanovas_authorize": "cassanovas.api",
+        };
+        let newResponse = await originalRequest(url, method, body, requestOptions);
+        result = newResponse.response;
+        //let data = newResponse.data;
+      } else {
+        alert(ret_response.statusText);
+      }
     }
     else {
       result = ret_response;
@@ -101,8 +109,8 @@ let refreshToken = async (authTokens) => {
     //newToken. = authTokens.refresh_token;
     return newToken;
   } else {
-    localStorage.clear();
-    window.location.href = constants.API_BASE_URL + "/signin"
+    //localStorage.clear();
+    //window.location.href = constants.API_BASE_URL + "/signin"
     return result.data;
   }
   //console.log("auth", newToken);
@@ -145,3 +153,8 @@ let originalRequest = async (url, method, body, requestOptions) => {
     }
   }
 };
+
+export const fetchAdminApi = async (url, method, body) => {
+
+}
+

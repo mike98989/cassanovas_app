@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Hash;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Auth;
+//use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Auth\UserAuthController;
 
 class AdminAuthController extends Controller
@@ -37,7 +37,7 @@ class AdminAuthController extends Controller
         //////// Hash password
         $request['password']=Hash::make($request['password']);
         $distributor = Admin::create($request->toArray());
-        $token = $distributor->createToken('Cassanovas_Sales_App')->accessToken;
+        //$token = $distributor->createToken('Cassanovas_Sales_App_Admin')->accessToken;
         
         //$send_mail = $this->send_mail($request->company_email,$request->company_name,"Welcome On Board",$emailHtmlMessage);
         //$response = ['message' => $send_mail,'status'=>'1'];
@@ -65,11 +65,16 @@ class AdminAuthController extends Controller
                 $user->last_login = date('Y-m-d H:i:s');  
                 $user->save();
 
+                //$request->grant_type='client_credentials';
                 $request->grant_type='password';
                 $request->company_email=$request->email;
-                $token = UserAuthController::get_refresh_access_token($request);
+                $token = $user->createToken('Admin');
+                //$token = (new UserAuthController)->get_refresh_access_token($request);
                 //$token=$this->get_refresh_access_token($request);
+                //session(['key' => 'value']);
+                //session(['admin' => $user]);
                 $response['token'] = $token;
+                $response['login_type'] = 'admin';
                 $response['data']=$user;
                 $response['success']=true;
                 return response($response, 200);
@@ -84,7 +89,7 @@ class AdminAuthController extends Controller
 
     }
 
-
+    
     //////////// LOGOUT
     public function logout (Request $request) {
     $token = $request->user()->token();

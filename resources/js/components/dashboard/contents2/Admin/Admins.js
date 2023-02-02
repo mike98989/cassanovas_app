@@ -36,7 +36,7 @@ export default function Administrators() {
                 <div className="card">
                     <div className="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                         <h6 className="m-0 text-default">Administrative Users</h6>
-                        <a href={Constants.BASE_URL + '/admindashboard/administrators/new'} className='btn btn-sm btn-info'>Create New +</a>
+                        <a href={Constants.BASE_URL + '/admin/administrators/new'} className='btn btn-sm btn-info'>Create New +</a>
                     </div>
                     <div className="table-responsive">
                         <table className="table align-items-center table-flush" style={{ fontSize: '12px' }}>

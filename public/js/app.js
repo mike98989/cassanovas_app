@@ -5528,7 +5528,7 @@ function App() {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.BrowserRouter, {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Routes, {
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, {
-                  path: "/admindashboard/*",
+                  path: "/admin/*",
                   element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_views_template2_AdminDashboard__WEBPACK_IMPORTED_MODULE_8__["default"], {})
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, {
                   path: "/dashboard/*",
@@ -5802,7 +5802,7 @@ function Administrators() {
             className: "m-0 text-default",
             children: "Administrative Users"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
-            href: _utils_Constants__WEBPACK_IMPORTED_MODULE_4__.BASE_URL + '/admindashboard/administrators/new',
+            href: _utils_Constants__WEBPACK_IMPORTED_MODULE_4__.BASE_URL + '/admin/administrators/new',
             className: "btn btn-sm btn-info",
             children: "Create New +"
           })]
@@ -6053,7 +6053,7 @@ function Distributors() {
             className: "m-0 text-default",
             children: "All Distributors"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
-            href: _utils_Constants__WEBPACK_IMPORTED_MODULE_4__.BASE_URL + '/admindashboard/administrators/new',
+            href: _utils_Constants__WEBPACK_IMPORTED_MODULE_4__.BASE_URL + '/admin/administrators/new',
             className: "btn btn-sm btn-info",
             children: "Create New +"
           })]
@@ -6109,7 +6109,7 @@ function Distributors() {
                       children: i + 1
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("td", {
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
-                        href: _utils_Constants__WEBPACK_IMPORTED_MODULE_4__.BASE_URL + '/admindashboard/distributors/' + distributor.rand,
+                        href: _utils_Constants__WEBPACK_IMPORTED_MODULE_4__.BASE_URL + '/admin/distributors/' + distributor.rand,
                         children: distributor.company_name
                       })
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("td", {
@@ -6227,7 +6227,7 @@ function Flavours() {
         marginBottom: '10px'
       },
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
-        href: _utils_Constants__WEBPACK_IMPORTED_MODULE_4__.BASE_URL + '/admindashboard/flavours/new',
+        href: _utils_Constants__WEBPACK_IMPORTED_MODULE_4__.BASE_URL + '/admin/flavours/new',
         className: "btn btn-success btn-sm",
         children: "Add Flavour +"
       })
@@ -8174,7 +8174,7 @@ function SideNav() {
       className: "nav-item",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
         className: "nav-link",
-        href: _utils_Constants__WEBPACK_IMPORTED_MODULE_1__.BASE_URL + '/admindashboard/home',
+        href: _utils_Constants__WEBPACK_IMPORTED_MODULE_1__.BASE_URL + '/admin/home',
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
           className: "fas fa-fw fa-tachometer-alt"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
@@ -8190,7 +8190,7 @@ function SideNav() {
       className: "nav-item",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
         className: "nav-link",
-        href: _utils_Constants__WEBPACK_IMPORTED_MODULE_1__.BASE_URL + '/admindashboard/distributors',
+        href: _utils_Constants__WEBPACK_IMPORTED_MODULE_1__.BASE_URL + '/admin/distributors',
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
           className: "fas fa-users"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
@@ -8201,7 +8201,7 @@ function SideNav() {
       className: "nav-item",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
         className: "nav-link",
-        href: _utils_Constants__WEBPACK_IMPORTED_MODULE_1__.BASE_URL + '/admindashboard/transactions',
+        href: _utils_Constants__WEBPACK_IMPORTED_MODULE_1__.BASE_URL + '/admin/transactions',
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
           className: "fas fa-credit-card"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
@@ -8212,7 +8212,7 @@ function SideNav() {
       className: "nav-item",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
         className: "nav-link",
-        href: _utils_Constants__WEBPACK_IMPORTED_MODULE_1__.BASE_URL + '/admindashboard/flavours',
+        href: _utils_Constants__WEBPACK_IMPORTED_MODULE_1__.BASE_URL + '/admin/flavours',
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
           className: "fa fa-th"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
@@ -8245,7 +8245,7 @@ function SideNav() {
             children: "Orders"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
             className: "collapse-item",
-            href: _utils_Constants__WEBPACK_IMPORTED_MODULE_1__.BASE_URL + '/admindashboard/order/completed',
+            href: _utils_Constants__WEBPACK_IMPORTED_MODULE_1__.BASE_URL + '/admin/order/completed',
             children: "Completed"
           })]
         })
@@ -8254,7 +8254,7 @@ function SideNav() {
       className: "nav-item",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
         className: "nav-link",
-        href: _utils_Constants__WEBPACK_IMPORTED_MODULE_1__.BASE_URL + '/admindashboard/flavours',
+        href: _utils_Constants__WEBPACK_IMPORTED_MODULE_1__.BASE_URL + '/admin/flavours',
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
           className: "fab fa-fw fa-wpforms"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
@@ -8265,7 +8265,7 @@ function SideNav() {
       className: "nav-item",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
         className: "nav-link",
-        href: _utils_Constants__WEBPACK_IMPORTED_MODULE_1__.BASE_URL + '/admindashboard/administrators',
+        href: _utils_Constants__WEBPACK_IMPORTED_MODULE_1__.BASE_URL + '/admin/administrators',
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
           className: "fas fa-users"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
@@ -8794,6 +8794,10 @@ var AuthProvider = function AuthProvider(_ref) {
     _useState6 = _slicedToArray(_useState5, 2),
     isLoading = _useState6[0],
     setLoading = _useState6[1];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    _useState8 = _slicedToArray(_useState7, 2),
+    sessionType = _useState8[0],
+    setSessionType = _useState8[1];
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     function loadAuthFromLocalStorage() {
       return _loadAuthFromLocalStorage.apply(this, arguments);
@@ -8806,8 +8810,9 @@ var AuthProvider = function AuthProvider(_ref) {
               case 0:
                 localStorage.getItem('authTokens') ? setAuthTokens(JSON.parse(localStorage.getItem('authTokens'))) : setAuthTokens(null);
                 localStorage.getItem('user_data') ? setUser(JSON.parse(localStorage.getItem('user_data'))) : setUser(null);
+                localStorage.getItem('session_type') ? setSessionType(JSON.parse(localStorage.getItem('session_type'))) : setSessionType(null);
                 setLoading(false);
-              case 3:
+              case 4:
               case "end":
                 return _context.stop();
             }
@@ -8826,6 +8831,7 @@ var AuthProvider = function AuthProvider(_ref) {
   var contextData = {
     user: user,
     authTokens: authTokens,
+    sessionType: sessionType,
     setAuthTokens: setAuthTokens,
     setUser: setUser,
     logoutUser: logout,
@@ -8960,6 +8966,7 @@ var GenericMethodProvider = function GenericMethodProvider(_ref) {
           if (data.data.success == true) {
             localStorage.setItem("authTokens", JSON.stringify(data.data.token));
             localStorage.setItem("user_data", JSON.stringify(data.data.data));
+            localStorage.setItem("session_type", JSON.stringify(data.data.login_type));
             window.location.href = _utils_Constants__WEBPACK_IMPORTED_MODULE_2__.BASE_URL + "/dashboard/home";
           }
         } else if (action_url == "adminlogin" && data.status == 200) {
@@ -8967,8 +8974,9 @@ var GenericMethodProvider = function GenericMethodProvider(_ref) {
           ///return;
           if (data.data.success == true) {
             localStorage.setItem("authTokens", JSON.stringify(data.data.token));
-            localStorage.setItem("admin_data", JSON.stringify(data.data.data));
-            window.location.href = _utils_Constants__WEBPACK_IMPORTED_MODULE_2__.BASE_URL + "/admindashboard/home";
+            localStorage.setItem("user_data", JSON.stringify(data.data.data));
+            localStorage.setItem("session_type", JSON.stringify(data.data.login_type));
+            window.location.href = _utils_Constants__WEBPACK_IMPORTED_MODULE_2__.BASE_URL + "/admin/home";
           }
         } else {
           data.status == 200 ? (setReturnMsgFromContext(data.data.message), setReturnStatusFromContext(data.data.status)) : (setReturnMsgFromContext(data.data.message), setReturnStatusFromContext('0'));
@@ -8987,17 +8995,7 @@ var GenericMethodProvider = function GenericMethodProvider(_ref) {
     _methods_Requests__WEBPACK_IMPORTED_MODULE_1__.fetchAuthApi(action_url, "POST", formData).then(function (data) {
       {
         console.log("Data is ", data);
-        if (action_url == "login" && data.status == 200) {
-          //console.log("dataValue", data.data.data);
-          ///return;
-          if (data.data.success == true) {
-            localStorage.setItem("authTokens", JSON.stringify(data.data.token));
-            localStorage.setItem("user_data", JSON.stringify(data.data.data));
-            window.location.href = _utils_Constants__WEBPACK_IMPORTED_MODULE_2__.BASE_URL + "/dashboard/home";
-          }
-        } else {
-          data.status == 200 ? (setReturnMsgFromContext(data.data.message), setReturnStatusFromContext(data.data.status)) : setReturnMsgFromContext(data.data.message), setReturnStatusFromContext('0');
-        }
+        data.status == 200 ? (setReturnMsgFromContext(data.data.message), setReturnStatusFromContext(data.data.status)) : setReturnMsgFromContext(data.data.message), setReturnStatusFromContext('0');
       }
       //show_toast();
       setLoading(false);
@@ -9099,19 +9097,29 @@ var ProtectedRoute = function ProtectedRoute(_ref) {
   var url = window.location.href;
   var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_AuthContext__WEBPACK_IMPORTED_MODULE_1__["default"]),
     isAuthenticated = _useContext.isAuthenticated,
-    user = _useContext.user;
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    user = _useContext.user,
+    sessionType = _useContext.sessionType;
+  react__WEBPACK_IMPORTED_MODULE_0__.useEffect(function () {
+    //useEffect(() => {
     // let include = router.pathname.includes('/dashboard');
     // console.log("include is", include);
-    if (url.toString().includes('dashboard')) {
+    if (url.toString().includes('dashboard/')) {
       //alert(JSON.stringify(isAuthenticated)); return;
-      if (!isAuthenticated) {
+      if (!isAuthenticated || sessionType != 'user') {
         window.location.href = _utils_Constants__WEBPACK_IMPORTED_MODULE_2__.BASE_URL + "/signin";
-        //router.push(constants.NEXT_PUBLIC_SERVER_URL + '/signin')
+        router.push(_utils_Constants__WEBPACK_IMPORTED_MODULE_2__.NEXT_PUBLIC_SERVER_URL + '/signin');
       }
     }
-  });
+    if (url.toString().includes('admin/')) {
+      //alert(JSON.stringify(isAuthenticated)); return;
+      if (!isAuthenticated || sessionType != 'admin') {
+        window.location.href = _utils_Constants__WEBPACK_IMPORTED_MODULE_2__.BASE_URL + "/adminlogin";
+        router.push(_utils_Constants__WEBPACK_IMPORTED_MODULE_2__.NEXT_PUBLIC_SERVER_URL + '/signin');
+      }
+    }
 
+    //})
+  }, [isAuthenticated]);
   return children;
 };
 
@@ -9191,6 +9199,7 @@ var usePasswordValidation = function usePasswordValidation(_ref) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "fetchAdminApi": () => (/* binding */ fetchAdminApi),
 /* harmony export */   "fetchApi": () => (/* binding */ fetchApi),
 /* harmony export */   "fetchAuthApi": () => (/* binding */ fetchAuthApi)
 /* harmony export */ });
@@ -9260,13 +9269,15 @@ var fetchApi = /*#__PURE__*/function () {
 }();
 var fetchAuthApi = /*#__PURE__*/function () {
   var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(url, method, body) {
-    var result, authTokens, requestOptions, ret_response, refreshTokens, newResponse;
+    var result, session_type, authTokens, requestOptions, ret_response, refreshTokens, newResponse;
     return _regeneratorRuntime().wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
             result = {};
-            authTokens = localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null; // const user_data = localStorage.getItem("user_data")
+            session_type = localStorage.getItem('session_type') ? JSON.parse(localStorage.getItem('session_type')) : null;
+            authTokens = localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null; //alert(JSON.stringify(authTokens.accessToken));
+            // const user_data = localStorage.getItem("user_data")
             //   ? JSON.parse(localStorage.getItem("user_data"))
             //   : null;
             //let response = [];
@@ -9274,43 +9285,53 @@ var fetchAuthApi = /*#__PURE__*/function () {
               headers: {
                 "cassanovas_authorize": "cassanovas.api",
                 "Content-Type": "multipart/form-data",
-                Authorization: "Bearer " + (authTokens === null || authTokens === void 0 ? void 0 : authTokens.access_token)
+                Authorization: authTokens ? session_type == 'user' ? "Bearer " + authTokens.access_token : "Bearer " + authTokens.accessToken : null
               }
             };
-            _context2.next = 5;
+            console.log(requestOptions);
+            _context2.next = 7;
             return originalRequest(url, method, body, requestOptions);
-          case 5:
+          case 7:
             ret_response = _context2.sent;
             if (!ret_response) {
-              _context2.next = 20;
+              _context2.next = 26;
               break;
             }
             if (!(ret_response.statusText == 'Unauthorized')) {
-              _context2.next = 19;
+              _context2.next = 25;
+              break;
+            }
+            if (!(session_type == 'user')) {
+              _context2.next = 22;
               break;
             }
             console.log("Get Refresh token");
-            _context2.next = 11;
+            _context2.next = 14;
             return refreshToken(authTokens);
-          case 11:
+          case 14:
             refreshTokens = _context2.sent;
             requestOptions["headers"] = {
               Authorization: "Bearer ".concat(refreshTokens.access_token),
               "cassanovas_authorize": "cassanovas.api"
             };
-            _context2.next = 15;
+            _context2.next = 18;
             return originalRequest(url, method, body, requestOptions);
-          case 15:
+          case 18:
             newResponse = _context2.sent;
             result = newResponse.response;
             //let data = newResponse.data;
-            _context2.next = 20;
+            _context2.next = 23;
             break;
-          case 19:
+          case 22:
+            alert(ret_response.statusText);
+          case 23:
+            _context2.next = 26;
+            break;
+          case 25:
             result = ret_response;
-          case 20:
+          case 26:
             return _context2.abrupt("return", result);
-          case 21:
+          case 27:
           case "end":
             return _context2.stop();
         }
@@ -9355,10 +9376,8 @@ var refreshToken = /*#__PURE__*/function () {
             //newToken. = authTokens.refresh_token;
             return _context3.abrupt("return", newToken);
           case 16:
-            localStorage.clear();
-            window.location.href = _utils_Constants__WEBPACK_IMPORTED_MODULE_0__.API_BASE_URL + "/signin";
             return _context3.abrupt("return", result.data);
-          case 19:
+          case 17:
           case "end":
             return _context3.stop();
         }
@@ -9427,6 +9446,22 @@ var originalRequest = /*#__PURE__*/function () {
   }));
   return function originalRequest(_x8, _x9, _x10, _x11) {
     return _ref4.apply(this, arguments);
+  };
+}();
+var fetchAdminApi = /*#__PURE__*/function () {
+  var _ref5 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5(url, method, body) {
+    return _regeneratorRuntime().wrap(function _callee5$(_context5) {
+      while (1) {
+        switch (_context5.prev = _context5.next) {
+          case 0:
+          case "end":
+            return _context5.stop();
+        }
+      }
+    }, _callee5);
+  }));
+  return function fetchAdminApi(_x12, _x13, _x14) {
+    return _ref5.apply(this, arguments);
   };
 }();
 
@@ -10647,7 +10682,8 @@ function Dashboard() {
     payStackPayment = _useContext.payStackPayment;
   var _useContext2 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_context_AuthContext__WEBPACK_IMPORTED_MODULE_3__["default"]),
     isAuthenticated = _useContext2.isAuthenticated,
-    user = _useContext2.user;
+    user = _useContext2.user,
+    sessionType = _useContext2.sessionType;
   react__WEBPACK_IMPORTED_MODULE_0__.useEffect(function () {
     var url = window.location.pathname.split('/');
     var new_url = url.filter(function (elm) {
@@ -10656,7 +10692,7 @@ function Dashboard() {
     setCompleteUrl(url);
   }, [isAuthenticated]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.Fragment, {
-    children: isAuthenticated && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.Fragment, {
+    children: isAuthenticated && sessionType == 'admin' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.Fragment, {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("div", {
         id: "wrapper",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_components_dashboard_snippets2_Admin_SideNav__WEBPACK_IMPORTED_MODULE_5__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("div", {
@@ -10858,7 +10894,8 @@ function Dashboard() {
     payStackPayment = _useContext.payStackPayment;
   var _useContext2 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_context_AuthContext__WEBPACK_IMPORTED_MODULE_3__["default"]),
     isAuthenticated = _useContext2.isAuthenticated,
-    user = _useContext2.user;
+    user = _useContext2.user,
+    sessionType = _useContext2.sessionType;
   react__WEBPACK_IMPORTED_MODULE_0__.useEffect(function () {
     var url = window.location.pathname.split('/');
     var new_url = url.filter(function (elm) {
@@ -10867,7 +10904,7 @@ function Dashboard() {
     setCompleteUrl(url);
   }, [isAuthenticated]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.Fragment, {
-    children: isAuthenticated && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.Fragment, {
+    children: isAuthenticated && sessionType == 'user' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.Fragment, {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsxs)("div", {
         id: "wrapper",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_components_dashboard_snippets2_SideNav__WEBPACK_IMPORTED_MODULE_5__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)("div", {

@@ -30,7 +30,7 @@ export default function Dashboard() {
         signOut,
         payStackPayment,
     } = useContext(GenericMethodContext);
-    const { isAuthenticated, user } = useContext(AuthContext);
+    const { isAuthenticated, user, sessionType } = useContext(AuthContext);
 
     React.useEffect(() => {
         let url = window.location.pathname.split('/');
@@ -41,7 +41,7 @@ export default function Dashboard() {
     return (
 
         <>
-            {isAuthenticated &&
+            {(isAuthenticated && sessionType == 'user') &&
                 <>
                     <div id="wrapper">
                         <SideNav />

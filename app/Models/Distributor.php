@@ -32,7 +32,6 @@ class Distributor extends Authenticatable
         'state',
         'activation_url',
         'rand',
-        
     ];
 
     /**

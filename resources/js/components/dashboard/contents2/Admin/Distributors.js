@@ -35,7 +35,7 @@ export default function Distributors() {
                 <div className="card">
                     <div className="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                         <h6 className="m-0 text-default">All Distributors</h6>
-                        <a href={Constants.BASE_URL + '/admindashboard/administrators/new'} className='btn btn-sm btn-info'>Create New +</a>
+                        <a href={Constants.BASE_URL + '/admin/administrators/new'} className='btn btn-sm btn-info'>Create New +</a>
                     </div>
                     <div className="table-responsive">
                         <table className="table align-items-center table-flush" style={{ fontSize: '12px' }}>
@@ -69,7 +69,7 @@ export default function Distributors() {
                                         return (
                                             <tr key={i}>
                                                 <td>{i + 1}</td>
-                                                <td><a href={Constants.BASE_URL + '/admindashboard/distributors/' + distributor.rand}>{distributor.company_name}</a></td>
+                                                <td><a href={Constants.BASE_URL + '/admin/distributors/' + distributor.rand}>{distributor.company_name}</a></td>
                                                 <td>{distributor.company_email}</td>
                                                 <td>{distributor.company_phone}</td>
                                                 <td>{distributor.state}</td>

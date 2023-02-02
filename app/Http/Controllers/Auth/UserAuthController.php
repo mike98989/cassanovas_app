@@ -60,6 +60,7 @@ class UserAuthController extends Controller
 
     public function login(Request $request)
     {
+        
         $validator = Validator::make($request->all(), [
             'company_email' => 'required|string|max:255',
             'password' => 'required|string|min:6',
@@ -71,6 +72,7 @@ class UserAuthController extends Controller
         $matchThese = ['distributors.company_email' => $request->company_email];
         $user = Distributor::where($matchThese)->join('states','distributors.state','=','states.state_id')->first();
         if ($user) {
+            
             if (Hash::check($request->password, $user->password)) {
                 //$token = $user->createToken('Laravel Password Grant Client')->accessToken;
                 /////////UPDATE LAST LOGIN
@@ -84,6 +86,7 @@ class UserAuthController extends Controller
                 $request->grant_type='password';
                 $token=$this->get_refresh_access_token($request);
                 $response['token'] = $token;
+                $response['login_type'] = 'user';
                 $response['data']=$user;
                 $response['success']=true;
                 return response($response, 200);
@@ -101,11 +104,9 @@ class UserAuthController extends Controller
 
     public function get_refresh_access_token(Request $request){
         $base_url=env('APP_URL').":8000";
-        
         $client_secrete2=env('PASSPORT_CLIENT_SECRET2');
         $client_id2=env('PASSPORT_CLIENT_ID2');
-        //return getAuthIdentifierName();
-       
+        
         if($request->grant_type=='password'){
              //return $request->company_email?$request->company_email:$request->email;
             $request->request->add([

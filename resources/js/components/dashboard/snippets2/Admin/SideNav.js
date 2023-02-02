@@ -11,7 +11,7 @@ export default function SideNav() {
             </a>
             <hr className="sidebar-divider my-0" />
             <li className="nav-item">
-                <a className="nav-link" href={constants.BASE_URL + '/admindashboard/home'}>
+                <a className="nav-link" href={constants.BASE_URL + '/admin/home'}>
                     <i className="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -22,7 +22,7 @@ export default function SideNav() {
             </div>
 
             <li className="nav-item">
-                <a className="nav-link" href={constants.BASE_URL + '/admindashboard/distributors'}>
+                <a className="nav-link" href={constants.BASE_URL + '/admin/distributors'}>
                     <i className="fas fa-users"></i>
                     <span>Distributors </span>
                 </a>
@@ -30,14 +30,14 @@ export default function SideNav() {
 
 
             <li className="nav-item">
-                <a className="nav-link" href={constants.BASE_URL + '/admindashboard/transactions'}>
+                <a className="nav-link" href={constants.BASE_URL + '/admin/transactions'}>
                     <i className="fas fa-credit-card"></i>
                     <span>Transactions </span>
                 </a>
             </li>
 
             <li className="nav-item">
-                <a className="nav-link" href={constants.BASE_URL + '/admindashboard/flavours'}>
+                <a className="nav-link" href={constants.BASE_URL + '/admin/flavours'}>
                     <i className="fa fa-th"></i>
                     <span> Flavours </span>
                 </a>
@@ -52,7 +52,7 @@ export default function SideNav() {
                 <div id="collapseBootstrap" className="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
                     <div className="bg-white py-2 collapse-inner rounded">
                         <h6 className="collapse-header">Orders</h6>
-                        <a className="collapse-item" href={constants.BASE_URL + '/admindashboard/order/completed'}>Completed</a>
+                        <a className="collapse-item" href={constants.BASE_URL + '/admin/order/completed'}>Completed</a>
                         {/* <a className="collapse-item" href={constants.BASE_URL + '/dashboard/order/pending'}>In Process</a> */}
 
 
@@ -60,7 +60,7 @@ export default function SideNav() {
                 </div>
             </li>
             <li className="nav-item">
-                <a className="nav-link" href={constants.BASE_URL + '/admindashboard/flavours'}>
+                <a className="nav-link" href={constants.BASE_URL + '/admin/flavours'}>
                     <i className="fab fa-fw fa-wpforms"></i>
                     <span>Support </span>
                 </a>
@@ -69,7 +69,7 @@ export default function SideNav() {
 
 
             <li className="nav-item">
-                <a className="nav-link" href={constants.BASE_URL + '/admindashboard/administrators'}>
+                <a className="nav-link" href={constants.BASE_URL + '/admin/administrators'}>
                     <i className="fas fa-users"></i>
                     <span>Administrators </span>
                 </a>

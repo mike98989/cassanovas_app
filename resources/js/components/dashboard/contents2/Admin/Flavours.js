@@ -48,7 +48,7 @@ export default function Flavours() {
 
             }
             <div className='container' style={{ marginBottom: '10px' }}>
-                <a href={Constants.BASE_URL + '/admindashboard/flavours/new'} className='btn btn-success btn-sm'>Add Flavour +</a>
+                <a href={Constants.BASE_URL + '/admin/flavours/new'} className='btn btn-success btn-sm'>Add Flavour +</a>
             </div>
             <div className='row'>
                 {(flavours && flavours.length != 0) &&

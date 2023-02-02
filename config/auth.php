@@ -45,6 +45,11 @@ return [
             'provider' => 'users',
             'hash' => true,
         ],
+        'admin' => [
+            'driver' => 'passport',
+            'provider' => 'admins',
+            'hash' => true,
+        ],
     ],
 
     // 'guards' => [
@@ -76,6 +81,10 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\Distributor::class,
         ],
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin::class,
+        ],
 
         // 'users' => [
         //     'driver' => 'database',
@@ -101,6 +110,12 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'admins' => [
+            'provider' => 'admins',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,

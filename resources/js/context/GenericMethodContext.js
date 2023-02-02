@@ -80,6 +80,7 @@ export const GenericMethodProvider = ({ children }) => {
           if (data.data.success == true) {
             localStorage.setItem("authTokens", JSON.stringify(data.data.token));
             localStorage.setItem("user_data", JSON.stringify(data.data.data));
+            localStorage.setItem("session_type", JSON.stringify(data.data.login_type));
             window.location.href = constants.BASE_URL + "/dashboard/home";
           }
         }
@@ -88,8 +89,9 @@ export const GenericMethodProvider = ({ children }) => {
           ///return;
           if (data.data.success == true) {
             localStorage.setItem("authTokens", JSON.stringify(data.data.token));
-            localStorage.setItem("admin_data", JSON.stringify(data.data.data));
-            window.location.href = constants.BASE_URL + "/admindashboard/home";
+            localStorage.setItem("user_data", JSON.stringify(data.data.data));
+            localStorage.setItem("session_type", JSON.stringify(data.data.login_type));
+            window.location.href = constants.BASE_URL + "/admin/home";
           }
         }
         else {
@@ -117,21 +119,13 @@ export const GenericMethodProvider = ({ children }) => {
     Requests.fetchAuthApi(action_url, "POST", formData).then((data) => {
       {
         console.log("Data is ", data);
-        if (action_url == "login" && data.status == 200) {
-          //console.log("dataValue", data.data.data);
-          ///return;
-          if (data.data.success == true) {
-            localStorage.setItem("authTokens", JSON.stringify(data.data.token));
-            localStorage.setItem("user_data", JSON.stringify(data.data.data));
-            window.location.href = constants.BASE_URL + "/dashboard/home";
-          }
-        } else {
-          data.status == 200
-            ? (setReturnMsgFromContext(data.data.message),
-              setReturnStatusFromContext(data.data.status))
-            : setReturnMsgFromContext(data.data.message), setReturnStatusFromContext('0');
 
-        }
+        data.status == 200
+          ? (setReturnMsgFromContext(data.data.message),
+            setReturnStatusFromContext(data.data.status))
+          : setReturnMsgFromContext(data.data.message), setReturnStatusFromContext('0');
+
+
 
 
       }
